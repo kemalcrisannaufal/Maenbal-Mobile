@@ -34,13 +34,14 @@ class HomeView extends GetView<HomeController> {
                   itemCount: controller.listNews.length,
                   itemBuilder: (context, index) {
                     return NewsCardView(
-                      title: controller.listNews[index].title,
-                      thumbnail: controller.listNews[index].thumbnail,
-                      onTap: () => Get.toNamed(
-                        Routes.NEWS_DETAIL,
-                        arguments: controller.listNews[index].id,
-                      ),
-                    );
+                        title: controller.listNews[index].title,
+                        thumbnail: controller.listNews[index].thumbnail,
+                        onTap: () {
+                          Get.toNamed(
+                            Routes.NEWS_DETAIL,
+                            arguments: controller.listNews[index].id,
+                          );
+                        });
                   })),
             ),
           ),
@@ -49,7 +50,7 @@ class HomeView extends GetView<HomeController> {
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
             child: Obx(
               () => Container(
-                height: controller.listHistory.length * 100,
+                height: controller.listHistory.length * 80,
                 child: ListView.builder(
                     itemCount: controller.listHistory.length,
                     itemBuilder: (context, index) {
@@ -64,6 +65,24 @@ class HomeView extends GetView<HomeController> {
           ),
         ],
       ),
+      bottomNavigationBar: BottomNavigationBar(
+          currentIndex: 0,
+          selectedItemColor: Colors.blue[700],
+          onTap: (index) {},
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.calendar_month),
+              label: 'Match',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.newspaper),
+              label: 'News',
+            ),
+          ]),
     );
   }
 

@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:soccer/app/data/url/urlAPI.dart';
 
 class MatchProvider extends GetConnect {
   Future<Map<String, dynamic>> getMatches() async {
@@ -15,8 +16,12 @@ class MatchProvider extends GetConnect {
   }
 
   Future<List<dynamic>> getNews() async {
-    final response =
-        await get("https://cbde-103-233-100-229.ngrok-free.app/api/news");
+    final response = await get(UrlAPI.url + "/api/news");
+    return response.body;
+  }
+
+  Future<Map<String, dynamic>> getNewsDetail(int id) async {
+    final response = await get(UrlAPI.url + "/api/news/" + id.toString());
     return response.body;
   }
 }

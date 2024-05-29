@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:soccer/app/data/models/match_history.dart';
 import 'package:soccer/app/data/models/news.dart';
 import 'package:soccer/app/data/providers/provider.dart';
+import 'package:soccer/app/data/url/urlAPI.dart';
 
 class HomeController extends GetxController {
   var homeTeam = "".obs;
@@ -58,8 +59,7 @@ class HomeController extends GetxController {
         var title = value[i]["title"];
         var content = value[i]["content"];
         var thumbnail =
-            "https://cbde-103-233-100-229.ngrok-free.app/storage/thumbnails/" +
-                value[i]["thumbnail"];
+            UrlAPI.url + "/storage/thumbnails/" + value[i]["thumbnail"];
         listNews.add(News(
           id: id,
           title: title,
@@ -67,7 +67,6 @@ class HomeController extends GetxController {
           thumbnail: thumbnail,
         ));
       }
-      // print(value.length);
     });
   }
 }
