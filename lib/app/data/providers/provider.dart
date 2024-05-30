@@ -24,4 +24,14 @@ class MatchProvider extends GetConnect {
     final response = await get(UrlAPI.url + "/api/news/" + id.toString());
     return response.body;
   }
+
+  Future<dynamic> login(String email, String password) async {
+    final url = UrlAPI.url + "/api/login";
+
+    final response = await post(url, {
+      'email': email,
+      'password': password,
+    });
+    return response.body;
+  }
 }

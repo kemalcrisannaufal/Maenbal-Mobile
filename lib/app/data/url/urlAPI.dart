@@ -1,3 +1,3 @@
 class UrlAPI {
-  static final String url = "https://ead9-180-244-132-132.ngrok-free.app";
+  static final String url = "https://50d4-103-233-100-229.ngrok-free.app";
 }
