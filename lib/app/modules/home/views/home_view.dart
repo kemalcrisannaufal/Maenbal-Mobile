@@ -68,15 +68,21 @@ class HomeView extends GetView<HomeController> {
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: 0,
           selectedItemColor: Colors.blue[700],
-          onTap: (index) {},
+          onTap: (index) {
+            if (index == 0) {
+              Get.toNamed(Routes.HOME);
+            } else if (index == 1) {
+              Get.toNamed(Routes.HIGHLIGHT);
+            }
+          },
           items: [
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
               label: 'Home',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.calendar_month),
-              label: 'Match',
+              icon: Icon(Icons.video_collection_outlined),
+              label: 'Highlight',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.newspaper),

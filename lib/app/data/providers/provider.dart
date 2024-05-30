@@ -34,4 +34,9 @@ class MatchProvider extends GetConnect {
     });
     return response.body;
   }
+
+  Future<List<dynamic>> getHighlights() async {
+    final response = await get(UrlAPI.url + "/api/highlights");
+    return response.body;
+  }
 }
